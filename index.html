@@ -54,94 +54,55 @@
         <!-- DNS Records -->
         <section id="dns-records">
             <h2>DNS Records Explained</h2>
-            <p>DNS records are used to define various aspects of a domain and how it should be handled by DNS servers. The most commonly used DNS records are:</p>
-            
-            <h3>A Record (Address Record)</h3>
-            <p>An A Record maps a domain name to an IPv4 address. For example, <code>example.com A 192.0.2.1</code>.</p>
-            
-            <h3>AAAA Record</h3>
-            <p>An AAAA Record maps a domain name to an IPv6 address. For example, <code>example.com AAAA 2001:0db8:85a3::8a2e:0370:7334</code>.</p>
-
-            <h3>CNAME Record (Canonical Name Record)</h3>
-            <p>A CNAME record maps one domain name to another, acting as an alias. For example, <code>www.example.com CNAME example.com</code>.</p>
-
-            <h3>MX Record (Mail Exchange Record)</h3>
-            <p>An MX record specifies the mail server responsible for receiving email for a domain. For example, <code>example.com MX 10 mail.example.com</code>.</p>
-
-            <h3>NS Record (Name Server Record)</h3>
-            <p>An NS record defines which DNS server is authoritative for a given domain. For example, <code>example.com NS ns1.example.com</code>.</p>
-
-            <h3>PTR Record (Pointer Record)</h3>
-            <p>A PTR record is used for reverse DNS lookups, mapping an IP address back to a domain name. For example, <code>1.0.0.127.in-addr.arpa PTR example.com</code>.</p>
-
-            <h3>SOA Record (Start of Authority Record)</h3>
-            <p>An SOA record contains administrative information about the domain, including the primary DNS server, contact email, and zone serial number. For example, <code>example.com SOA ns1.example.com. admin.example.com. (2023110101 7200 3600 1209600 86400)</code>.</p>
-
-            <h3>TXT Record (Text Record)</h3>
-            <p>TXT records hold arbitrary text and are often used for verification purposes, such as setting up SPF records or DKIM records for email security. For example, <code>example.com TXT "v=spf1 ip4:192.0.2.0/24 -all"</code>.</p>
-
-            <h3>SRV Record (Service Record)</h3>
-            <p>SRV records are used to define services and protocols used by a domain. For example, <code>_sip._tcp.example.com SRV 10 60 5060 sipserver.example.com</code>.</p>
-
-            <h3>CAA Record (Certification Authority Authorization Record)</h3>
-            <p>CAA records specify which certificate authorities are authorized to issue SSL/TLS certificates for the domain. For example, <code>example.com CAA 0 issue "letsencrypt.org"</code>.</p>
-        </section>
-
-        <!-- Advanced Configurations -->
-        <section id="advanced-config">
-            <h2>Advanced DNS Configurations</h2>
-            <h3>Anycast DNS</h3>
-            <p>Anycast DNS allows for DNS requests to be routed to the nearest DNS server geographically, improving performance and reducing latency. Anycast is typically used by large DNS providers like Cloudflare and Google.</p>
-
-            <h3>GeoDNS</h3>
-            <p>GeoDNS is a configuration that allows DNS queries to be resolved based on the geographic location of the requestor. This can be used to direct users to different servers depending on their location to optimize content delivery and load times.</p>
-
-            <h3>DNS Load Balancing</h3>
-            <p>DNS load balancing distributes traffic across multiple servers by returning different IP addresses for the same domain based on different factors, such as server health or geographical location.</p>
+            <p>DNS records define various aspects of a domain's functionality. Here are the key records:</p>
+            <ul>
+                <li><strong>A Record</strong>: Maps a domain name to an IPv4 address.</li>
+                <li><strong>AAAA Record</strong>: Maps a domain name to an IPv6 address.</li>
+                <li><strong>CNAME Record</strong>: Creates an alias for a domain name.</li>
+                <li><strong>MX Record</strong>: Specifies the mail server for a domain.</li>
+                <li><strong>NS Record</strong>: Indicates the authoritative name servers for the domain.</li>
+                <li><strong>PTR Record</strong>: Used for reverse DNS lookups.</li>
+                <li><strong>SOA Record</strong>: Contains administrative data about a domain.</li>
+                <li><strong>TXT Record</strong>: Stores text information, often for verification.</li>
+                <li><strong>SRV Record</strong>: Specifies services offered by a domain.</li>
+                <li><strong>CAA Record</strong>: Indicates which certificate authorities can issue certificates for the domain.</li>
+            </ul>
         </section>
 
         <!-- DNS Security -->
         <section id="dns-security">
             <h2>DNS Security Best Practices</h2>
-            <h3>DNSSEC</h3>
-            <p>DNSSEC adds a layer of security by enabling DNS records to be cryptographically signed, preventing tampering and spoofing attacks.</p>
-            <h3>Access Control</h3>
-            <p>Limit zone transfers to authorized IPs to prevent unauthorized access to sensitive information.</p>
-            <h3>Rate Limiting</h3>
-            <p>Implement rate limiting on DNS queries to prevent DDoS (Distributed Denial of Service) attacks.</p>
-            <h3>Regular Updates</h3>
-            <p>Keep your DNS software up to date to ensure it is secure from known vulnerabilities.</p>
+            <ul>
+                <li>Enable <strong>DNSSEC</strong> to prevent spoofing.</li>
+                <li>Limit zone transfers to authorized servers.</li>
+                <li>Implement rate limiting to prevent abuse.</li>
+                <li>Keep DNS software up-to-date for security patches.</li>
+            </ul>
         </section>
 
-        <!-- DNS Performance Optimization -->
+        <!-- Performance Optimization -->
         <section id="dns-performance">
             <h2>DNS Performance Optimization</h2>
-            <h3>Cache TTL Settings</h3>
-            <p>Set optimal TTL (Time-To-Live) values for your DNS records to balance between performance and resource usage. Shorter TTLs lead to more frequent lookups, while longer TTLs reduce query load on DNS servers.</p>
-
-            <h3>DNS Prefetching</h3>
-            <p>Implement DNS prefetching in your web application to reduce latency for end-users when accessing domains that are likely to be used soon.</p>
-
-            <h3>DNS Server Placement</h3>
-            <p>Deploy DNS servers in multiple geographic locations to reduce latency and improve resolution speeds for global users.</p>
+            <ul>
+                <li>Use optimal <strong>Cache TTL</strong> settings.</li>
+                <li>Implement DNS prefetching for faster load times.</li>
+                <li>Deploy DNS servers geographically to reduce latency.</li>
+            </ul>
         </section>
 
-        <!-- DNS Monitoring -->
+        <!-- Monitoring -->
         <section id="dns-monitoring">
-            <h2>DNS Monitoring and Alerts</h2>
-            <p>Regularly monitor your DNS servers to ensure uptime and performance. Tools like <a href="https://www.nagios.org/">Nagios</a>, <a href="https://zabbix.com/">Zabbix</a>, or third-party DNS monitoring services can help you detect and respond to issues.</p>
-            <p>Common metrics to monitor:</p>
+            <h2>DNS Monitoring</h2>
+            <p>Use tools like Nagios, Zabbix, or external services to monitor:</p>
             <ul>
-                <li>Query Response Times</li>
-                <li>Cache Hit/Miss Ratios</li>
-                <li>Error Rates (e.g., SERVFAIL, NXDOMAIN)</li>
-                <li>Unusual Query Volumes (potential sign of a DDoS attack)</li>
+                <li>Response times</li>
+                <li>Error rates</li>
+                <li>Unusual query volumes</li>
             </ul>
         </section>
     </main>
-
     <footer>
-        <p>&copy; 2024 DNS Tutorial</p
+        <p>&copy; 2024 DNS Tutorial</p>
     </footer>
 </body>
 </html>
